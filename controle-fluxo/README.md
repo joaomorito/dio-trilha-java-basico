@@ -21,3 +21,7 @@
 > ExemploWhile.java: Nesse arquivo, foi abordado o uso de WHILE.
 
 > ExemploDoWhile.java: Nesse arquivo, foi abordado o uso de DO WHILE, que, diferentemente do WHILE, o bloco de comando é executado ao menos uma única vez.
+
+> AboutMe.java: Nesse arquivo, foi abordado o uso de TRY CATCH.
+
+>  ExemploExcecao.java & CepInvalidoException.java & FormatadorCepExemplo.java: Nesses arquivos, foram abordadas o uso e criação de exceções persolanizadas.
