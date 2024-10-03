@@ -25,3 +25,5 @@
 > AboutMe.java: Nesse arquivo, foi abordado o uso de TRY CATCH.
 
 >  ExemploExcecao.java & CepInvalidoException.java & FormatadorCepExemplo.java: Nesses arquivos, foram abordadas o uso e criação de exceções persolanizadas.
+
+> ProcessoSeletivo.java: Nesse arquivo, foi desenvolvido um pequeno sistema para validação de candidatos a um processo seletivo com ênfase em aplicação de estudos voltados à estruturas de repetição.
