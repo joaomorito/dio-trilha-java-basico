@@ -1,6 +1,6 @@
 package org.example.junit;
 
-import org.junit.Assert;
+import org.example.Pessoa;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 

@@ -1,7 +1,7 @@
 package org.example.junit;
 
+import org.example.Pessoa;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.time.LocalDate;
 
