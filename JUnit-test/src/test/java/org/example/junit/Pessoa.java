@@ -1,4 +1,4 @@
-package org.example;
+package org.example.junit;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
@@ -23,5 +23,9 @@ public class Pessoa {
 
     public int getIdade(){
         return (int) ChronoUnit.YEARS.between(this.nascimento, LocalDate.now());
+    }
+
+    public boolean ehMaiorDeIdade(){
+        return getIdade() >= 18;
     }
 }
