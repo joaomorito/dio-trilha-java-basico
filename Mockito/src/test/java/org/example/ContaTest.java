@@ -7,8 +7,9 @@ import org.mockito.ArgumentMatchers;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(Extension.class)
+@ExtendWith(MockitoExtension.class)
 public class ContaTest {
 
     @Spy

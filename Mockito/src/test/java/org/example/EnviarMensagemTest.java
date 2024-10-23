@@ -6,8 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.extension.Extension;
 import org.mockito.Mockito;
 import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(Extension.class)
+@ExtendWith(MockitoExtension.class)
 public class EnviarMensagemTest {
 
     @Spy
