@@ -12,6 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.anyString;
 
 @ExtendWith(MockitoExtension.class)
 public class CadastrarPessoaTest {
@@ -23,14 +24,26 @@ public class CadastrarPessoaTest {
     private CadastrarPessoa cadastrarPessoa;
 
     @Test
-    void validarDadosDeCadastro(){
-        DadosLocalizacao dadosLocalizacao = new DadosLocalizacao("MG", "Poços de Caldas", "Rua 2", "Apto", "Centro");
-        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep("191919")).thenReturn(dadosLocalizacao);
-        Pessoa joao = cadastrarPessoa.cadastrarPessoa("João", "12121", LocalDate.now(), "191919");
+    void cadastrarPessoa() {
 
-        assertEquals("João", joao.getNome());
-        assertEquals("12121", joao.getDocumento());
-        assertEquals("MG", joao.getEndereco().getUf());
-        assertEquals("Apto", joao.getEndereco().getComplemento());
+        DadosLocalizacao dadosLocalizacao = new DadosLocalizacao("MG", "Uberaba", "Rua Castro Alves", "Casa", "Nova Floresta");
+
+        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenReturn(dadosLocalizacao);
+
+        Pessoa jose = cadastrarPessoa.cadastrarPessoa("José", "28578527976", LocalDate.of(1947, 1, 15), "69317300");
+
+        DadosLocalizacao enderecoJose = jose.getEndereco();
+        assertEquals(dadosLocalizacao.getBairro(), enderecoJose.getBairro());
+        assertEquals(dadosLocalizacao.getCidade(), enderecoJose.getCidade());
+        assertEquals(dadosLocalizacao.getUf(), enderecoJose.getUf());
     }
+
+    @Test
+    void tentaCadastrarPessoaMasSistemaDosCorreiosFalha() {
+
+        Mockito.when(apiDosCorreios.buscaDadosComBaseNoCep(anyString())).thenThrow(RuntimeException.class);
+
+        Assertions.assertThrows(RuntimeException.class, () -> cadastrarPessoa.cadastrarPessoa("José", "28578527976", LocalDate.of(1947, 1, 15), "69317300"));
+    }
+
 }
